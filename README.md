@@ -82,6 +82,21 @@ hosts.forEach(function (host) {
 });
 ```
 
+## Kills the last promise based ping process implementation in the middle
+
+```js
+/* Note: only the last ping process called by ping.process.probe will be killed.
+*        In above example of list of hosts, since 'yahoo.com' is the last host,
+*        this method can terminate only 'yahoo.com' process only.
+*/
+ping.promise.probeKill()
+    .then((res) => {
+        console.log(res);
+    }).catch((err) => {
+        console.log(err);
+    });
+```
+
 ### Support configuration
 
 Below is the possible configuration
